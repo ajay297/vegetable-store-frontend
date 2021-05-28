@@ -6,6 +6,9 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 toast.configure();
+var button_class="navbar-toggler";
+var header_class="header-colorfull header-horizontal header-over header-view-side";
+
 
 function Jumbo(props) {
     const [profile, setprofile] = useState({});
@@ -36,8 +39,6 @@ function Jumbo(props) {
     const [active, setActive] = useState(false);
     const cart = useSelector(state => state.cart);
     const data = useSelector(state => state.data);
-    var button_class = "navbar-toggler";
-    var header_class = "header-colorfull header-horizontal header-over header-view-side";
     const [x, setx] = useState(0);
     const cartArray = [];
     let itemsNumber = 0;
