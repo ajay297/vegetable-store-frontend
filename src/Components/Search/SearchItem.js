@@ -1,22 +1,36 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../../store/actions/cart';
 
 function SearchItem(props) {
+  const dispatch = useDispatch();
+  const add = () => {
+    dispatch(addToCart(props._id)); 
+  }
     return (
         <div className="col-md-6 col-lg-12">
         <article className="entity">
           <div className="grid-sm row">
-            <div className="col-sm-5">
-              <a className="entity-preview-show-up entity-preview" href="shop-product-sidebar-right.html">
+            <div className="col-md-6">
+               <div className="entity-preview-show-up entity-preview"> 
                   <span className="embed-responsive embed-responsive-6by4">
-                      <img className="embed-responsive-item" src={props.imgsrc} alt="" /></span><span className="with-back entity-preview-content"><span className="h3 m-auto text-theme text-center"><i className="fas fa-search" /></span><span className="overflow-back bg-body-back opacity-70" /></span></a>
+                      <img className="embed-responsive-item" src={props.imgsrc} alt="" /></span><span className="with-back entity-preview-content"><span className="h3 m-auto text-theme text-center"></span><span className="overflow-back bg-body-back opacity-70" /></span>
+                       </div> 
             </div>
             <div className="col">
               <h4 className="h5 mb-1 entity-title">
-                <a className="content-link" href="shop-product-sidebar-right.html">{props.name}</a>
+                <>{props.name}</>
               </h4>
               <div className="entity-price">
                 <span className="currency">$</span>{props.price} / kg
               </div>
+              <button  onClick={add} className="btn-wide mr-1 btn btn-theme" 
+              style ={{'height': '2.5rem',
+               'margin-top': '0.6rem',
+                'margin-left': '-0.3rem',
+                'padding': '0'}}>
+                Add to cart
+              </button>
             </div>
           </div>
         </article>
