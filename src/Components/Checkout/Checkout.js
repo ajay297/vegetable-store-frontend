@@ -12,7 +12,8 @@ function Checkout() {
 
   });
   const cart = useSelector(state => state.cart);
-  const data = useSelector(state => state.data);
+  const Data = useSelector(state => state.data);
+  const data = Data.data;
   const dispatch = useDispatch();
   const cartArray = [];
   let total = 0, shipping = 10;

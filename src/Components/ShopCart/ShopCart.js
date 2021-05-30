@@ -3,11 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import Jumbo from '../Jumbo/Jumbo';
 import ShopItem from './ShopItem';
 import { clearFromCart } from '../../store/actions/cart'
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ShopCart() {
   const cart = useSelector(state => state.cart);
-  const data = useSelector(state => state.data);
+  const Data = useSelector(state => state.data);
+  const data = Data.data;
   const dispatch = useDispatch();
   const cartArray = [];
   let itemsNumber = 0;
@@ -28,7 +29,7 @@ function ShopCart() {
   }
   return (
     <div>
-      <Jumbo name="Cart"/>
+      <Jumbo name="Cart" />
       <section className="mb-0 section">
         <form className="container">
           <div className="cart-items">
@@ -87,10 +88,10 @@ function ShopCart() {
                     </li>
                   </ul>
                   <div className="col-md-4 col-lg-3">
-                  <Link className="btn btn-theme" to="/checkout">
-                    Proceed
+                    <Link className="btn btn-theme" to="/checkout">
+                      Proceed
                   </Link>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
